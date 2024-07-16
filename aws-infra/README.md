@@ -19,7 +19,7 @@ k3s-aws-api-deployment/
 │   │   │   │   ├── nat_gateway/main,variables,outputs        # NAT Gateway module
 │   │   │   │   └── security_group/main,variables,outputs      # Security Group module
 │   │   └──
-│   └──
+│   └── README.md                             # aws-infra project documentation
 │
 ├── README.md                             # Project documentation
 ```
