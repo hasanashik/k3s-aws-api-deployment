@@ -63,7 +63,7 @@ terraform apply
 ![alt Terraform Plan](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/4-terraform-apply-2.PNG?raw=true)
 
 
-In our case we got:\ 
+In our case we got
 nat_gateway_id = "nat-0a1a50fc11ae8c47d"\
 private_subnet_id = "subnet-0f77d7a495c138bd2"\
 public_subnet_id = "subnet-0044a7741d8066ff3"\
