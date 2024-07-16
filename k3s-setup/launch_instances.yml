@@ -7,9 +7,11 @@
     key_name: my-aws-key
     instance_type: t3.micro
     ami_id: ami-0abcdef1234567890
-    private_subnet_id: subnet-0abcdef1234567890
-    security_group_id: sg-0abcdef1234567890
+    private_subnet_id: subnet-0f77d7a495c138bd2
+    security_group_id: sg-0726d659a82181af7
     count: 3  # 1 server, 2 agent nodes
+    aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"  # Using environment variable
+    aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"  # Using environment variable
   tasks:
     - name: Launch EC2 instances
       ec2:
@@ -22,6 +24,8 @@
         count: "{{ count }}"
         instance_tags:
           Name: "k3s-node"
+        aws_access_key: "{{ aws_access_key }}"
+        aws_secret_key: "{{ aws_secret_key }}"
         wait: yes
       register: ec2
 
