@@ -13,14 +13,14 @@ k3s-aws-api-deployment/\
 │ │ └── stage/\
 │ ├── blueprint/\
 │ │ └── modules/\
-│ │ ├── vpc/\
-│ │ ├── public_subnet/\
-│ │ ├── private_subnet/\
-│ │ └── nat_gateway/\
+│ │  ├── vpc/\
+│ │  ├── public_subnet/\
+│ │  ├── private_subnet/\
+│ │  └── nat_gateway/\
 │ ├── main.tf\
 │ └── variables.tf\
 │\
-└── README.md\
+└── README.md
 
 ### Directory Breakdown
 - `aws-infra/`: Contains all infrastructure-related files.
