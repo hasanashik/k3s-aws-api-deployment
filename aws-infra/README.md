@@ -39,7 +39,7 @@ cd /workspaces/k3s-aws-api-deployment/aws-infra/terraform/env/dev
 ```terraform login
 terraform init
 ```
-![alt Terraform local login in devcontainer](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/1%20terraform%20login.png?raw=true)
+![alt Terraform local login in devcontainer](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/1-terraform%20login.png?raw=true)
 4. Review the execution plan:
 ```terraform plan
 ```
