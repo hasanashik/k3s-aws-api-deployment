@@ -4,23 +4,23 @@ This repository provides infrastructure code for deploying a K3s cluster on AWS 
 
 ## Project Structure
 
-k3s-aws-api-deployment/
-│
-├── aws-infra/
-│ ├── env/
-│ │ ├── dev/
-│ │ ├── prod/
-│ │ └── stage/
-│ ├── blueprint/
-│ │ └── modules/
-│ │ ├── vpc/
-│ │ ├── public_subnet/
-│ │ ├── private_subnet/
-│ │ └── nat_gateway/
-│ ├── main.tf
-│ └── variables.tf
-│
-└── README.md
+k3s-aws-api-deployment/\
+│\
+├── aws-infra/\
+│ ├── env/\
+│ │ ├── dev/\
+│ │ ├── prod/\
+│ │ └── stage/\
+│ ├── blueprint/\
+│ │ └── modules/\
+│ │ ├── vpc/\
+│ │ ├── public_subnet/\
+│ │ ├── private_subnet/\
+│ │ └── nat_gateway/\
+│ ├── main.tf\
+│ └── variables.tf\
+│\
+└── README.md\
 
 ### Directory Breakdown
 - `aws-infra/`: Contains all infrastructure-related files.
