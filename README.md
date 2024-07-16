@@ -1,6 +1,47 @@
 # k3s-aws-api-deployment
+This project will consist of 6 tasks:
 
-This repository provides infrastructure code for deploying a K3s cluster on AWS using Terraform. The infrastructure includes a VPC with both public and private subnets, a NAT Gateway in the public subnet, and the necessary security groups.
+## 1. AWS Infrastructure Setup
+a) Create a directory named `aws-infra` in your repository.
+b) Write Terraform or CloudFormation code to provision:
+   - A VPC with both public and private subnets
+   - A NAT Gateway in the public subnet
+   - Necessary security groups
+c) Include a `README.md` with instructions on how to apply the infrastructure code.
+
+## 2. K3s Cluster Deployment
+a) Create a directory named `k3s-setup` in your repository.
+b) Write Ansible playbooks or shell scripts to:
+   - Launch EC2 instances in the private subnet (1 server and 2 agent nodes)
+   - Install and configure k3s on the instances
+c) Include a `README.md` with instructions on how to run the deployment scripts.
+
+## 3. Python REST API Development
+a) Create a directory named `api` in your repository.
+b) Write a simple Python REST API using a framework of your choice (e.g., Flask, FastAPI).
+c) Include at least two endpoints: a GET endpoint returning a "Hello, World!" message and a POST endpoint accepting and returning JSON data.
+d) Write a Dockerfile to containerize the API.
+e) Include a `README.md` with instructions on how to build and run the API locally.
+
+## 4. Kubernetes Deployment
+a) Create a directory named `k8s` in your repository.
+b) Write Kubernetes manifests for:
+   - A Deployment for your Python API
+   - A Service to expose the API within the cluster
+c) Include a `README.md` with instructions on how to apply the Kubernetes manifests.
+
+## 5. NGINX Load Balancer Setup
+a) Create a directory named `nginx` in your repository.
+b) Write an NGINX configuration file to route traffic to the Kubernetes Service.
+c) Include a `README.md` with instructions on how to deploy and configure NGINX.
+
+## 6. CI/CD Pipeline
+a) Set up GitHub Actions to:
+   - Run tests on the Python API when changes are pushed
+   - Build and push the Docker image to a container registry (e.g., Docker)
+   - Update the Kubernetes deployment when changes are merged to the main branch
+b) Include the GitHub Actions workflow file in the repository root.
+ 
 
 ## Project Structure
 
