@@ -18,23 +18,32 @@
 - AWS credentials configured in Terraform cloud variables.
 
 ### Steps to Deploy
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/k3s-aws-api-deployment.git
-   cd k3s-aws-api-deployment/aws-infra```
+1. 
 In https://app.terraform.io/ Create a Organization and Workspace for the project.
 In our case Organization is zaman-iac and Workspace is k3s-aws-api-deployment
 In zaman-iac/Workspaces/k3s-aws-api-deployment/Variables
 On the left side Variables link we can setup AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as Sensitive variables.
 ![alt Terraform Cloud aws credential setup](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/0-variable-st-terraform-cloud.PNG?raw=true)
 
+Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/k3s-aws-api-deployment.git
+   ```
+Open k3s-aws-api-deployment in vscode devcontainer. (**Need to install Docker desktop locally on your PC.)
+
 2. Navigate to the desired environment folder:
 ```bash 
-cd env/dev ```  
-3. Initialize Terraform:
-```terraform init```  
+cd /workspaces/k3s-aws-api-deployment/aws-infra/terraform/env/dev
+```
+3. Login and Initialize Terraform:
+```terraform login
+terraform init
+```
+![alt Terraform local login in devcontainer](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/1%20terraform%20login.png?raw=true)
 4. Review the execution plan:
-```terraform plan```  
+```terraform plan
+```
 5. Apply the Terraform configuration
-```terraform apply```  
+```terraform apply
+```
 Confirm that the infrastructure was created successfully in your AWS account.
