@@ -26,7 +26,7 @@ In https://app.terraform.io/ Create a Organization and Workspace for the project
 In our case Organization is zaman-iac and Workspace is k3s-aws-api-deployment
 In zaman-iac/Workspaces/k3s-aws-api-deployment/Variables
 On the left side Variables link we can setup AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY as Sensitive variables.
-![alt Terraform Cloud aws credential setup](https://github.com/hasanashik/k3s-aws-api-deployment/0-variable-st-terraform-cloud.PNG?raw=true)
+![alt Terraform Cloud aws credential setup](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/0-variable-st-terraform-cloud.PNG?raw=true)
 
 2. Navigate to the desired environment folder:
 ```bash 
