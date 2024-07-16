@@ -35,13 +35,16 @@ Open k3s-aws-api-deployment in vscode devcontainer. (**Need to install Docker de
 ```bash 
 cd /workspaces/k3s-aws-api-deployment/aws-infra/terraform/env/dev
 ```
-3. Login and Initialize Terraform:
+3. Login Terraform:
 ```terraform login
-terraform init
 ```
 ![alt Terraform local login in devcontainer](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/1-terraform%20login.png?raw=true)
-4. Review the execution plan:
-```terraform plan
+By providing the access token which is generated from https://app.terraform.io/app/settings/tokens?source=terraform-login we have provided local container to access our terraform resources.
+4. Initialize, fix script formation and Review the execution plan:
+```
+terraform init
+terraform fmt -recursive
+terraform plan
 ```
 5. Apply the Terraform configuration
 ```terraform apply
