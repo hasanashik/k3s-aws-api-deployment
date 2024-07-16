@@ -1,17 +1,28 @@
 ### Files and Directories:
-- `aws-infra/`
-  - `env/`
-    - `dev/`
-    - `prod/`
-    - `stage/`
-  - `blueprint/`
-    - `modules/`
-      - `vpc/`
-      - `public_subnet/`
-      - `private_subnet/`
-      - `nat_gateway/`
-  - `main.tf`
-  - `variables.tf`
+```plaintext
+k3s-aws-api-deployment/
+│
+├── aws-infra/
+│   ├── terraform/
+│   │   ├── env/
+│   │   │   ├── dev/
+│   │   │   │   ├── main.tf              # Terraform configuration for the dev environment
+│   │   │   │   ├── variables.tf         # Input variables for Terraform
+│   │   │   │   ├── outputs.tf           # Outputs of the Terraform configuration
+│   │   │   │   └── providers.tf         # Provider configurations
+│   │   │   └── prod/                    # prod environments (if any)
+│   │   │   └── stage/                   # stage environments (if any)
+│   │   ├── blueprint/
+│   │   │   ├── modules/
+│   │   │   │   ├── vpc/main,variables,outputs              # VPC module
+│   │   │   │   ├── subnet/main,variables,outputs            # Subnet module
+│   │   │   │   ├── nat_gateway/main,variables,outputs        # NAT Gateway module
+│   │   │   │   └── security_group/main,variables,outputs      # Security Group module
+│   │   └──
+│   └──
+│
+├── README.md                             # Project documentation
+```
 
 ### Prerequisites
 - [Terraform](https://app.terraform.io/) Cloud account.
