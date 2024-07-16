@@ -63,11 +63,11 @@ terraform apply
 ![alt Terraform Plan](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/4-terraform-apply-2.PNG?raw=true)
 
 
-In our case we got: 
-nat_gateway_id = "nat-0a1a50fc11ae8c47d"
-private_subnet_id = "subnet-0f77d7a495c138bd2"
-public_subnet_id = "subnet-0044a7741d8066ff3"
-security_group_id = "sg-0726d659a82181af7"
+In our case we got:/ 
+nat_gateway_id = "nat-0a1a50fc11ae8c47d"/
+private_subnet_id = "subnet-0f77d7a495c138bd2"/
+public_subnet_id = "subnet-0044a7741d8066ff3"/
+security_group_id = "sg-0726d659a82181af7"/
 vpc_id = "vpc-0d560dee502922be2"
 
 Confirm that the infrastructure was created successfully in your AWS account.
