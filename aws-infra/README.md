@@ -53,10 +53,16 @@ terraform init
 terraform fmt -recursive
 terraform plan
 ```
+![alt Terraform Plan](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/3-terraform%20plan.png?raw=true)
+
 5. Apply the Terraform configuration
 ```bash
 terraform apply
 ```
+![alt Terraform Plan](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/4-terraform-apply.PNG?raw=true)
+![alt Terraform Plan](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/aws-infra/screenshots/4-terraform-apply-2.PNG?raw=true)
+
+
 In our case we got: 
 nat_gateway_id = "nat-0a1a50fc11ae8c47d"
 private_subnet_id = "subnet-0f77d7a495c138bd2"
