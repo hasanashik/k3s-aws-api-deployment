@@ -14,3 +14,7 @@ output "private_subnet_id" {
 output "nat_gateway_id" {
   value = module.nat_gateway.nat_gateway_id
 }
+
+output "security_group_id" {
+  value = module.security_group.security_group_id
+}

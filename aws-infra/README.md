@@ -18,6 +18,12 @@
 - AWS credentials configured in Terraform cloud variables.
 
 ### Steps to Deploy
+- Open your project in VSCode.
+- Ensure you have the Remote Containers extension installed.
+- Reopen the project in the DevContainer.
+- Configure your AWS credentials inside the DevContainer.
+- Initialize and apply the Terraform configuration.
+
 1. 
 In https://app.terraform.io/ Create a Organization and Workspace for the project.
 In our case Organization is zaman-iac and Workspace is k3s-aws-api-deployment
@@ -51,4 +57,11 @@ terraform plan
 ```bash
 terraform apply
 ```
+In our case we got: 
+nat_gateway_id = "nat-0a1a50fc11ae8c47d"
+private_subnet_id = "subnet-0f77d7a495c138bd2"
+public_subnet_id = "subnet-0044a7741d8066ff3"
+security_group_id = "sg-0726d659a82181af7"
+vpc_id = "vpc-0d560dee502922be2"
+
 Confirm that the infrastructure was created successfully in your AWS account.

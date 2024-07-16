@@ -44,6 +44,16 @@ module "nat_gateway" {
   allocation_id    = aws_eip.nat_eip.id
 }
 
+module "security_group" {
+  source        = "/workspaces/k3s-aws-api-deployment/aws-infra/terraform/blueprint/modules/security_group"
+  vpc_id        = module.vpc.vpc_id
+  name_prefix   = var.sg_name_prefix
+  description   = var.sg_description
+  ingress_rules = var.sg_ingress_rules
+  egress_rules  = var.sg_egress_rules
+  tags          = var.tags
+}
+
 resource "aws_eip" "nat_eip" {
   domain = "vpc"
 }
@@ -63,3 +73,5 @@ resource "aws_route" "private_subnet_route" {
   destination_cidr_block = "0.0.0.0/0"
   nat_gateway_id         = module.nat_gateway.nat_gateway_id
 }
+
+
