@@ -1,10 +1,16 @@
 # k3s-aws-api-deployment
 This project consists of six main tasks:
+1. AWS Infrastructure Setup
+2. K3s Cluster Deployment
+3. Python REST API Development
+4. Kubernetes Deployment
+5. NGINX Load Balancer Setup
+6. CI/CD Pipeline
 
 ## 1. AWS Infrastructure Setup
 To set up the AWS infrastructure, follow these steps:
 
-### Steps:
+### Target:
 1. Create a directory named `aws-infra` in the repository.
 2. Write Terraform code to provision the following resources:
    - A VPC with both public and private subnets.
@@ -32,7 +38,7 @@ To set up the AWS infrastructure, follow these steps:
 ## 2. K3s Cluster Deployment
 To deploy a K3s cluster, follow these steps:
 
-### Steps:
+### Target:
 1. Create a directory named `k3s-setup` in the repository.
 2. Write Ansible playbooks or shell scripts to:
    - Launch EC2 instances in the private subnet (1 server and 2 agent nodes).
@@ -50,7 +56,7 @@ To deploy a K3s cluster, follow these steps:
 ## 3. Python REST API Development
 To develop a Python REST API, follow these steps:
 
-### Steps:
+### Target:
 1. Create a directory named `api` in the repository.
 2. Write a simple Python REST API using a framework of your choice (e.g., Flask, FastAPI).
 3. Include at least two endpoints:
@@ -70,7 +76,7 @@ To develop a Python REST API, follow these steps:
 ## 4. Kubernetes Deployment
 To deploy the API to Kubernetes, follow these steps:
 
-### Steps:
+### Target:
 1. Create a directory named `k8s` in the repository.
 2. Write Kubernetes manifests for:
    - A Deployment for your Python API.
@@ -87,7 +93,7 @@ To deploy the API to Kubernetes, follow these steps:
 ## 5. NGINX Load Balancer Setup
 To set up an NGINX load balancer, follow these steps:
 
-### Steps:
+### Target:
 1. Create a directory named `nginx` in the repository.
 2. Write an NGINX configuration file to route traffic to the Kubernetes Service.
 
@@ -102,7 +108,7 @@ To set up an NGINX load balancer, follow these steps:
 ## 6. CI/CD Pipeline
 To set up a CI/CD pipeline using GitHub Actions, follow these steps:
 
-### Steps:
+### Target:
 1. Set up GitHub Actions to:
    - Run tests on the Python API when changes are pushed.
    - Build and push the Docker image to a container registry (e.g., Docker Hub).
