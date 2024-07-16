@@ -6,7 +6,7 @@ To set up the AWS infrastructure, follow these steps:
 
 ### Steps:
 1. Create a directory named `aws-infra` in the repository.
-2. Write Terraform or CloudFormation code to provision the following resources:
+2. Write Terraform code to provision the following resources:
    - A VPC with both public and private subnets.
    - A NAT Gateway in the public subnet.
    - Necessary security groups.
