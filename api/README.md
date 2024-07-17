@@ -1,8 +1,8 @@
 ## Python REST API with Flask
-api/
-├── app.py
-├── Dockerfile
-└── docker-compose.yml
+api/\
+├── app.py\
+├── Dockerfile\
+└── docker-compose.yml\
 
 apt install systemctl
 pip install Flask 
