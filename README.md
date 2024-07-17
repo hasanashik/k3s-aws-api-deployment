@@ -70,11 +70,10 @@ To deploy a K3s cluster, follow these steps:
 - See the `README.md` file in the `k3s-setup` directory for detailed instructions on how to run the deployment scripts.
 
 ## 3. Python REST API Development
-To develop a Python REST API, follow these steps:
 
 ### Target:
 1. Create a directory named `api` in the repository.
-2. Write a simple Python REST API using a framework of your choice (e.g., Flask, FastAPI).
+2. Write a simple Python REST API using Flask.
 3. Include at least two endpoints:
    - A GET endpoint returning a "Hello, World!" message.
    - A POST endpoint accepting and returning JSON data.
@@ -84,7 +83,6 @@ To develop a Python REST API, follow these steps:
 - `api/`
   - `app.py`
   - `Dockerfile`
-  - `docker-compose.yml`
   - `README.md`
 
 ### Instructions:
