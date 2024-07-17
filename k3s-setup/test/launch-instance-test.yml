@@ -1,0 +1,16 @@
+---
+- name: Ansible test
+  hosts: localhost
+  tasks:
+    - name: Launching AWS instance using Ansible
+      amazon.aws.ec2_instance:
+        key_name: zaman-key
+        instance_type: t2.micro
+        image_id: ami-060e277c0d4cce553  # Corrected here
+        region: ap-southeast-1
+        wait: yes
+        security_group: sg-0c94855b6f78de346  # Changed from 'group' to 'security_group'
+        count: 1
+        subnet_id: subnet-08b71d05da928e641  # Changed from 'vpc_subnet_id' to 'subnet_id'
+        aws_access_key: AKIAXYKJQNVZRS2LB36Y
+        aws_secret_key: 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

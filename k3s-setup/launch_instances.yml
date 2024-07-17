@@ -1,47 +1,50 @@
 ---
 - name: Launch EC2 instances in a private subnet
   hosts: localhost
-  gather_facts: no
-  vars:
-    aws_region: ap-southeast-1
-    key_name: my-aws-key
-    instance_type: t3.micro
-    ami_id: ami-0abcdef1234567890
-    private_subnet_id: subnet-0f77d7a495c138bd2
-    security_group_id: sg-0726d659a82181af7
-    count: 3  # 1 server, 2 agent nodes
-    aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY_ID') }}"  # Using environment variable
-    aws_secret_key: "{{ lookup('env', 'AWS_SECRET_ACCESS_KEY') }}"  # Using environment variable
   tasks:
-    - name: Launch EC2 instances
-      ec2:
-        key_name: "{{ key_name }}"
-        instance_type: "{{ instance_type }}"
-        image: "{{ ami_id }}"
-        region: "{{ aws_region }}"
-        vpc_subnet_id: "{{ private_subnet_id }}"
-        group_id: "{{ security_group_id }}"
-        count: "{{ count }}"
-        instance_tags:
-          Name: "k3s-node"
-        aws_access_key: "{{ aws_access_key }}"
-        aws_secret_key: "{{ aws_secret_key }}"
+    - name: Launch K3s server instance
+      amazon.aws.ec2_instance:
+        name: "k3s-server"
+        key_name: zaman-key
+        instance_type: t2.micro
+        image_id: ami-060e277c0d4cce553
+        region: ap-southeast-1
         wait: yes
-      register: ec2
+        security_group: sg-0c94855b6f78de346
+        subnet_id: subnet-08b71d05da928e641
+        aws_access_key: AKIAXYKJQNVZRS2LB36Y
+        aws_secret_key: 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
+        network:
+          assign_public_ip: yes  # Assign a public IP
+      register: server_instance  # Register the output
 
-    - name: Add instances to inventory
-      add_host:
-        hostname: "{{ item.public_ip }}"
-        groupname: launched
-      loop: "{{ ec2.instances }}"
-      when: item.public_ip is defined
+    - name: Launch K3s agent instances
+      amazon.aws.ec2_instance:
+        name: "k3s-agent"
+        count: 2
+        key_name: zaman-key
+        instance_type: t2.micro
+        image_id: ami-060e277c0d4cce553
+        region: ap-southeast-1
+        wait: yes
+        security_group: sg-0c94855b6f78de346
+        subnet_id: subnet-08b71d05da928e641
+        aws_access_key: AKIAXYKJQNVZRS2LB36Y
+        aws_secret_key: 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
+        network:
+          assign_public_ip: yes  # Assign a public IP
+      register: agent_instances  # Register the output
 
-    - name: Wait for SSH to come up
-      wait_for:
-        host: "{{ item.public_ip }}"
-        port: 22
-        delay: 60
-        timeout: 320
-        state: started
-      loop: "{{ ec2.instances }}"
-      when: item.public_ip is defined
+    - name: Update inventory file
+      block:
+        - name: Add server to inventory
+          lineinfile:
+            path: inventory.ini
+            line: "k3s_server ansible_host={{ server_instance.instances[0].public_ip_address }} ansible_user=ec2-user ansible_ssh_private_key_file=/workspaces/k3s-aws-api-deployment/k3s-setup/ssh-key/zaman-key.pem"
+            create: yes
+
+        - name: Add agents to inventory
+          lineinfile:
+            path: inventory.ini
+            line: "k3s_agent ansible_host={{ item.public_ip_address }} ansible_user=ec2-user ansible_ssh_private_key_file=/workspaces/k3s-aws-api-deployment/k3s-setup/ssh-key/zaman-key.pem"
+          loop: "{{ agent_instances.instances }}"

@@ -1,34 +1,24 @@
 ---
-- name: Install and configure K3s on server node
-  hosts: k3s_server
+- hosts: k3s_server
   become: yes
   tasks:
     - name: Install K3s server
       shell: |
-        curl -sfL https://get.k3s.io | sh -s - server --node-external-ip "{{ ansible_host }}"
+        curl -sfL https://get.k3s.io | sh -
+      register: k3s_server_install
 
     - name: Get K3s token
-      shell: cat /var/lib/rancher/k3s/server/node-token
+      shell: |
+        cat /var/lib/rancher/k3s/server/node-token
       register: k3s_token
-      changed_when: false
 
-    - name: Create token file for agent nodes
-      copy:
-        dest: /tmp/k3s_token
-        content: "{{ k3s_token.stdout }}"
+    - name: Set K3s server IP
+      set_fact:
+        k3s_server_ip: "{{ ansible_default_ipv4.address }}"
 
-- name: Install and configure K3s on agent nodes
-  hosts: k3s_agents
+- hosts: k3s_agents
   become: yes
   tasks:
-    - name: Fetch K3s token from server
-      fetch:
-        src: /tmp/k3s_token
-        dest: /tmp/k3s_token
-        flat: yes
-
     - name: Install K3s agent
       shell: |
-        K3S_TOKEN=$(cat /tmp/k3s_token)
-        K3S_URL=https://{{ hostvars['k3s_server']['ansible_host'] }}:6443
-        curl -sfL https://get.k3s.io | K3S_TOKEN=$K3S_TOKEN K3S_URL=$K3S_URL sh -s - agent --node-external-ip "{{ ansible_host }}"
+        curl -sfL https://get.k3s.io | K3S_URL=https://{{ hostvars['k3s_server'][0]['k3s_server_ip'] }}:6443 K3S_TOKEN={{ hostvars['k3s_server'][0]['k3s_token']['stdout'] }} sh -
