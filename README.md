@@ -59,80 +59,13 @@ To deploy a K3s cluster, follow these steps:
 
 ### Files and Directories:
 - `k3s-setup/`
-  - `playbooks/`
-  - `scripts/`
+  - `screenshots`
+  - `ssh-key`
+  - `install_k3s.yml` : Install k3s on EC2 instances 
+  - `inventory.ini` : Auto generated inventory file containing generated EC2 instances public ip and ssh key file
+  - `launch_instances.yml` : Deploys EC2 instances on the AWS VPC 
   - `README.md`
 
 ### Instructions:
 - See the `README.md` file in the `k3s-setup` directory for detailed instructions on how to run the deployment scripts.
 
-## 3. Python REST API Development
-To develop a Python REST API, follow these steps:
-
-### Target:
-1. Create a directory named `api` in the repository.
-2. Write a simple Python REST API using a framework of your choice (e.g., Flask, FastAPI).
-3. Include at least two endpoints:
-   - A GET endpoint returning a "Hello, World!" message.
-   - A POST endpoint accepting and returning JSON data.
-4. Write a Dockerfile to containerize the API.
-
-### Files and Directories:
-- `api/`
-  - `app/`
-  - `Dockerfile`
-  - `README.md`
-
-### Instructions:
-- See the `README.md` file in the `api` directory for detailed instructions on how to build and run the API locally.
-
-## 4. Kubernetes Deployment
-To deploy the API to Kubernetes, follow these steps:
-
-### Target:
-1. Create a directory named `k8s` in the repository.
-2. Write Kubernetes manifests for:
-   - A Deployment for your Python API.
-   - A Service to expose the API within the cluster.
-
-### Files and Directories:
-- `k8s/`
-  - `manifests/`
-  - `README.md`
-
-### Instructions:
-- See the `README.md` file in the `k8s` directory for detailed instructions on how to apply the Kubernetes manifests.
-
-## 5. NGINX Load Balancer Setup
-To set up an NGINX load balancer, follow these steps:
-
-### Target:
-1. Create a directory named `nginx` in the repository.
-2. Write an NGINX configuration file to route traffic to the Kubernetes Service.
-
-### Files and Directories:
-- `nginx/`
-  - `nginx.conf`
-  - `README.md`
-
-### Instructions:
-- See the `README.md` file in the `nginx` directory for detailed instructions on how to deploy and configure NGINX.
-
-## 6. CI/CD Pipeline
-To set up a CI/CD pipeline using GitHub Actions, follow these steps:
-
-### Target:
-1. Set up GitHub Actions to:
-   - Run tests on the Python API when changes are pushed.
-   - Build and push the Docker image to a container registry (e.g., Docker Hub).
-   - Update the Kubernetes deployment when changes are merged to the main branch.
-
-### Files and Directories:
-- `.github/`
-  - `workflows/`
-    - `ci-cd.yml`
-
-### Instructions:
-- The GitHub Actions workflow file is included in the repository root. Follow the instructions in the file to set up and run the CI/CD pipeline.
-
- 
