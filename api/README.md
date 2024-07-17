@@ -15,5 +15,5 @@ docker build -t flask-api .
 docker-compose up
 ```
 
-![alt api get port](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/k3s-setup/screenshots/4-inventory-file-updated-automatically.PNG?raw=true)
+![alt api get port](https://github.com/hasanashik/k3s-aws-api-deployment/blob/main/api/screenshot/api-get-post-request.PNG?raw=true)
 
