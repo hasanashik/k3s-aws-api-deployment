@@ -82,8 +82,9 @@ To develop a Python REST API, follow these steps:
 
 ### Files and Directories:
 - `api/`
-  - `app/`
+  - `app.py`
   - `Dockerfile`
+  - `docker-compose.yml`
   - `README.md`
 
 ### Instructions:
